@@ -5,18 +5,18 @@ import path from "path";
 
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
-  extensions: [".svelte", ".md", ".svx"],
+	extensions: [".svelte", ".md", ".svx"],
 
-  preprocess: [vitePreprocess(), mdsvex({ extensions: [".md", ".svx"] })],
+	preprocess: [vitePreprocess(), mdsvex({ extensions: [".md", ".svx"] })],
 
-  kit: {
-    adapter: adapter(),
+	kit: {
+		adapter: adapter(),
 
-    alias: {
-      $static: path.resolve("static"),
-      $content: path.resolve("content"),
-    },
-  },
+		alias: {
+			$static: path.resolve("static"),
+			$content: path.resolve("content"),
+		},
+	},
 };
 
 export default config;
