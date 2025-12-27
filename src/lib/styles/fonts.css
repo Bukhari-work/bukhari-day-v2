@@ -1,0 +1,19 @@
+/* 1. Package Imports */
+@import "@fontsource-variable/ibm-plex-sans";
+
+/* 2. Local Font Definitions */
+@font-face {
+    font-family: "Lilex";
+    src: url("/fonts/Lilex[wght].woff2") format("woff2");
+    font-weight: 100 900;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Lilex";
+    src: url("/fonts/Lilex-Italic[wght].woff2") format("woff2");
+    font-weight: 100 900;
+    font-style: italic;
+    font-display: swap;
+}
