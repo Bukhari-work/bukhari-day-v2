@@ -2,7 +2,7 @@ import { getProjects } from "$lib/utils/projects"; // <--- Update import
 import { getWritings } from "$lib/utils/writings";
 
 export async function GET() {
-	const site = "https://your-domain.com"; // <--- Don't forget to change this later!
+	const site = "https://www.bukhari.day";
 
 	// Update to await both functions
 	const projects = await getProjects();
