@@ -10,10 +10,11 @@ export type Project = {
 		url: string;
 	};
 	thumbnail?: string; // Path to image in /static
+	highlights?: string[];
 	featured: boolean;
 };
 
-export type Post = {
+export type Writing = {
 	title: string;
 	slug: string;
 	date: string;

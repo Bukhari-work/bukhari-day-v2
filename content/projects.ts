@@ -5,20 +5,38 @@ export const projects: Project[] = [
 	{
 		title: "Personal Portfolio",
 		slug: "portfolio-v1",
+		thumbnail: "/projects/thumbnail.webp",
 		summary:
 			"A modern, accessible personal website built with SvelteKit and Tailwind CSS v4. Features a markdown blog and dynamic project showcase.",
 		role: "Solo Developer",
 		year: "2025",
-		tech: ["SvelteKit", "Tailwind v4", "shadcn-svelte", "TypeScript"],
+		tech: [
+			"SvelteKit",
+			"Tailwind v4",
+			"shadcn-svelte",
+			"TypeScript",
+			"Svelte",
+			"Chart.js",
+			"Supabase",
+			"React",
+			"Next.js",
+			"Prisma",
+		],
 		link: {
 			label: "GitHub",
 			url: "https://github.com/yourusername/portfolio",
 		},
+		highlights: [
+			"Perfect 100/100 Lighthouse Score",
+			"Implemented dark mode with CSS variables",
+			"Fully accessible keyboard navigation",
+		],
 		featured: true,
 	},
 	{
 		title: "Company Dashboard",
 		slug: "company-dashboard",
+		thumbnail: "/projects/placeholder.webp",
 		summary:
 			"An internal analytics dashboard for visualizing sales data. Implemented complex data grids and authentication.",
 		role: "Frontend Lead",
@@ -42,7 +60,7 @@ export const projects: Project[] = [
 			label: "Live Demo",
 			url: "#",
 		},
-		featured: false,
+		featured: true,
 	},
 ];
 

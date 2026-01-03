@@ -130,7 +130,8 @@
 	}
 
 	::selection {
-		@apply bg-accent/30 text-accent/80;
+		/*@apply bg-accent/30 text-accent/80;*/
+		@apply bg-primary/20 text-foreground;
 	}
 
 	input,

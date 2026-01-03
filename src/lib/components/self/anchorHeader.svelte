@@ -1,4 +1,4 @@
-<script lang="ts">
+<!-- <script lang="ts">
 	import type { Snippet } from "svelte";
 	import type { HTMLAttributes } from "svelte/elements";
 	import { tick } from "svelte";
@@ -213,4 +213,4 @@
 	<span data-anchor-text>
 		{@render children()}
 	</span>
-</svelte:element>
+</svelte:element> -->
