@@ -1,4 +1,5 @@
 <script lang="ts">
+	import SEO from "$lib/components/SEO.svelte";
 	import { Badge } from "$lib/components/ui/badge";
 	import { Button } from "$lib/components/ui/button";
 	import { Separator } from "$lib/components/ui/separator";
@@ -17,13 +18,10 @@
 	);
 </script>
 
-<svelte:head>
-	<title>{data.meta.title}</title>
-	<meta name="description" content={data.meta.description} />
-</svelte:head>
+<SEO title={data.meta.title} description={data.meta.description} type="article" />
 
-<article class="container max-w-4xl py-10 md:py-16">
-	<nav class="mb-8">
+<article class="container py-12 lg:max-w-4xl">
+	<nav class="mb-8 hidden md:block">
 		<Button
 			variant="ghost"
 			href="/writings"
@@ -33,6 +31,7 @@
 			Back to Writings
 		</Button>
 	</nav>
+
 	<header class="mb-10 flex flex-col items-center gap-4 text-center">
 		<h1 class="text-4xl font-extrabold tracking-tight lg:text-5xl">
 			{data.meta.title}
@@ -56,7 +55,7 @@
 	<Separator class="my-8" />
 
 	<section
-		class="prose dark:prose-invert prose-headings:leading-none prose-li:leading-normal mx-auto max-w-3xl min-w-0"
+		class="prose prose-sm md:prose-base dark:prose-invert prose-headings:leading-none prose-li:leading-normal mx-auto max-w-3xl min-w-0"
 	>
 		<data.content />
 	</section>

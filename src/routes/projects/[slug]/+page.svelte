@@ -1,4 +1,5 @@
 <script lang="ts">
+	import SEO from "$lib/components/SEO.svelte";
 	import { Badge } from "$lib/components/ui/badge";
 	import { Button } from "$lib/components/ui/button";
 	import { Separator } from "$lib/components/ui/separator";
@@ -18,12 +19,10 @@
 	});
 </script>
 
-<svelte:head>
-	<title>{meta.title} | Projects</title>
-</svelte:head>
+<SEO title={data.meta.title} description={data.meta.description} type="article" />
 
-<article class="container max-w-4xl py-10 lg:py-16">
-	<nav class="mb-8">
+<article class="container py-12 lg:max-w-4xl">
+	<nav class="mb-8 hidden md:block">
 		<Button
 			variant="ghost"
 			href="/projects"
@@ -98,7 +97,10 @@
 					</h3>
 					<div class="flex flex-wrap gap-2">
 						{#each tech as t}
-							<Badge variant="secondary" class="text-xs font-normal">
+							<Badge
+								variant="secondary"
+								class="shrink-0 font-mono text-xs font-normal"
+							>
 								{t}
 							</Badge>
 						{/each}
@@ -110,7 +112,7 @@
 
 	<Separator class="my-12 lg:my-16" />
 
-	<section class="mx-auto max-w-3xl space-y-12 lg:space-y-16">
+	<section class="mx-auto space-y-12 lg:space-y-16">
 		{#if highlights.length > 0}
 			<section>
 				<h2 class="mb-6 text-2xl font-bold tracking-tight">Key Highlights</h2>
@@ -127,12 +129,11 @@
 					{/each}
 				</ul>
 			</section>
+			<Separator />
 		{/if}
 
-		<Separator class="my-12 lg:my-16" />
-
 		<section
-			class="prose dark:prose-invert prose-headings:leading-none prose-li:leading-normal min-w-0"
+			class="prose prose-sm md:prose-base dark:prose-invert prose-headings:leading-none prose-li:leading-normal mx-auto max-w-3xl min-w-0"
 		>
 			<data.content />
 		</section>

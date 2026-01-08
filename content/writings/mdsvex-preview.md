@@ -111,7 +111,7 @@ A link example: [Svelte docs](https://svelte.dev).
 
 ### TypeScript
 
-```ts
+```typescript
 type Mood = "calm" | "focused" | "chaotic";
 
 function greet(name: string, mood: Mood) {

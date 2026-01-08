@@ -1,21 +1,17 @@
 <script lang="ts">
+	import type { PageData } from "./$types";
+	import SEO from "$lib/components/SEO.svelte";
 	import WritingCard from "$lib/components/WritingCard.svelte";
 
-	// Receive the data from +page.server.ts
-	let { data } = $props();
+	let { data }: { data: PageData } = $props();
 </script>
 
-<svelte:head>
-	<title>Writings | Your Name</title>
-	<meta name="description" content="Thoughts on software engineering, design, and SvelteKit." />
-</svelte:head>
+<SEO title="Writings" description="Articles on things I am interested in." />
 
-<div class="container max-w-3xl py-12">
-	<header class="mb-12 space-y-4">
+<div class="container py-12 xl:max-w-5xl">
+	<header class="mb-12 max-w-prose space-y-4">
 		<h1 class="text-4xl font-extrabold tracking-tight lg:text-5xl">Writings</h1>
-		<p class="text-muted-foreground text-xl">
-			Notes on development, tutorials, and things I've learned along the way.
-		</p>
+		<p class="text-muted-foreground text-xl">Notes things I've learned along the way.</p>
 	</header>
 
 	{#if data.writings.length > 0}

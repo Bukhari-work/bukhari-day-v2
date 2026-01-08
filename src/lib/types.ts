@@ -9,7 +9,7 @@ export type Project = {
 		label: string; // e.g., "Live Demo", "GitHub"
 		url: string;
 	};
-	thumbnail?: string; // Path to image in /static
+	thumbnail?: string;
 	highlights?: string[];
 	featured: boolean;
 };

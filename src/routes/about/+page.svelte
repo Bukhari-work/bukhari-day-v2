@@ -1,42 +1,103 @@
 <script lang="ts">
-	// You can add 'skills' arrays here if you want dynamic rendering
-	const skills = ["SvelteKit", "Tailwind CSS", "TypeScript", "Node.js", "Design Systems"];
+	import SEO from "$lib/components/SEO.svelte";
+	import InterestCard from "$lib/components/InterestCard.svelte"; // Import the new component
+	import { MapPin, Activity, Store, BookOpen } from "@lucide/svelte";
+
+	// Data structure for "Beyond" cards
+	const interests = [
+		{
+			category: "Physical",
+			title: "Running",
+			icon: Activity,
+			description:
+				"Pelari Kalcer Pakai Strava, if you know what I mean (I don't use Strava).",
+			meta: "5km Avg",
+			variant: "default" as const,
+			imageUrl: "/images/ahmad-bukhari-jog.webp",
+		},
+		{
+			category: "Escape",
+			title: "Reading",
+			icon: BookOpen,
+			description:
+				"High fantasy and and slice-of-life. <br/>Currently finishing <em class='italic'>By Blood, By Salt</em>.",
+			meta: "Chapter 4",
+			variant: "outline" as const,
+			imageUrl: "/images/by-blood-by-salt-cover.jpg",
+		},
+		{
+			category: "Escape",
+			title: "Begin Again Coffee",
+			icon: Store,
+			description:
+				"I co-own a small coffee shop. It keeps me grounded (no pun intended) in the realities of business logic.",
+			meta: "Co-owner",
+			variant: "outline" as const,
+			imageUrl: "/images/begin-again.webp",
+		},
+	];
 </script>
 
-<svelte:head>
-	<title>About | Your Name</title>
-</svelte:head>
+<SEO
+	title="About Me | Data Analyst"
+	description="I am a Data Analyst with a background in Nuclear Engineering. I specialize in turning raw data into actionable business insights."
+/>
 
-<div class="container max-w-5xl py-12">
-	<div class="prose dark:prose-invert max-w-none">
+<div class="container space-y-16 py-12 xl:max-w-5xl">
+	<header class="mb-12 max-w-prose space-y-4">
 		<h1 class="text-4xl font-extrabold tracking-tight lg:text-5xl">About Me</h1>
-		<p class="lead text-muted-foreground text-xl">
-			I am a software engineer with an entrepreneurial spirit based in South Kalimantan.
-		</p>
+	</header>
 
-		<p>
-			I don't just write code; I build solutions. My background is unique—I balance running a
-			local coffee business with full-stack web development. This gives me a perspective most
-			developers miss: <strong>I understand that software must drive business results.</strong
+	<section class="flex flex-col gap-10 md:flex-row md:items-start md:gap-16">
+		<div class="shrink-0 md:w-1/3">
+			<div
+				class="bg-muted/50 relative flex aspect-square w-full items-center justify-center overflow-hidden rounded-2xl border shadow-sm"
 			>
-		</p>
+				<img
+					src="/images/ahmad-bukhari.webp"
+					alt="Ahmad Bukhari"
+					class="h-full w-full object-cover"
+				/>
+			</div>
 
-		<h2>My Stack</h2>
-		<p>
-			I focus on the "Bleeding Edge" of the JavaScript ecosystem because it lets me ship
-			faster.
-		</p>
-		<ul>
-			<li><strong>Frontend:</strong> Svelte 5, SvelteKit, Tailwind v4, Astro</li>
-			<li><strong>Backend:</strong> Node.js, Supabase, PostgreSQL</li>
-			<li><strong>Tools:</strong> TypeScript, Docker, Git</li>
-		</ul>
+			<div class="text-muted-foreground mt-6 flex items-center justify-center text-sm">
+				<MapPin class="mr-2 h-4 w-4" />
+				<span>Banjarmasin, Indonesia</span>
+			</div>
+		</div>
 
-		<h2>Beyond Code</h2>
-		<p>
-			When I'm not debugging, I'm likely experimenting with new coffee blends for
-			<strong>Rumaisha</strong> (my coffee shop) or running outdoors to clear my head. I also
-			enjoy reading fantasy novels—currently finishing <em>By Blood, By Salt</em>.
-		</p>
-	</div>
+		<div class="text-muted-foreground space-y-6 text-lg leading-relaxed md:pt-2">
+			<p>
+				I am a Data Analyst based in South Kalimantan. My work focuses on bridging the gap
+				between chaotic datasets and clear, actionable business strategy.
+			</p>
+
+			<p>
+				With a background in <strong class="text-foreground">Nuclear Engineering</strong>, I
+				bring a methodical, scientific rigor to data pipelines and reporting. I believe that
+				good analysis isn't just about the numbers—it's about asking the right questions to
+				drive
+				<span
+					class="text-foreground decoration- font-medium underline decoration-emerald-500/50 underline-offset-4"
+				>
+					decision-ready insights.
+				</span>
+			</p>
+		</div>
+	</section>
+
+	<section class="space-y-6">
+		<div class="max-w-2xl">
+			<h2 class="font-mono text-2xl font-bold tracking-tight">Beyond the Data</h2>
+			<p class="text-muted-foreground mt-2 text-lg">
+				When I'm not querying databases or building dashboards, I focus on offline pursuits.
+			</p>
+		</div>
+
+		<div class="grid gap-6 md:grid-cols-3">
+			{#each interests as item}
+				<InterestCard {...item} />
+			{/each}
+		</div>
+	</section>
 </div>

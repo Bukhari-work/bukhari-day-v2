@@ -1,27 +1,62 @@
 <script lang="ts">
+	import ModeToggle from "$lib/components/ModeToggle.svelte";
+
 	const currentYear = new Date().getFullYear();
+
+	const LINKS = {
+		source: {
+			label: "GitHub",
+			href: "https://github.com/yourusername/yourrepo",
+			external: true,
+		},
+		email: { label: "Email", href: "mailto:your@email.com", external: false },
+		linkedin: { label: "LinkedIn", href: "https://linkedin.com/in/yourhandle", external: true },
+		rss: { label: "RSS", href: "/rss.xml", external: false },
+	} as const;
+
+	const NAV_LINKS = [LINKS.email, LINKS.linkedin, LINKS.rss, LINKS.source] as const;
 </script>
 
-<footer class="border-t py-6 md:py-0">
-	<div class="container flex flex-col items-center justify-between gap-4 md:h-24 md:flex-row">
-		<div class="flex flex-col items-center gap-4 px-8 md:flex-row md:gap-2 md:px-0">
-			<p class="text-muted-foreground text-center text-sm leading-loose md:text-left">
-				Built by <span
-					class="text-foreground font-medium underline decoration-dashed underline-offset-4"
-					>You</span
-				>. The source code is available on
-				<a
-					href="https://github.com"
-					target="_blank"
-					class="font-medium underline underline-offset-4">GitHub</a
-				>.
-			</p>
-		</div>
+<footer class="z-50 w-full">
+	<div class="bg-background container border-t py-6 sm:border-t-0 sm:bg-transparent sm:py-8">
+		<div class="sm:bg-card rounded-2xl px-4 py-4 shadow-sm sm:border sm:px-6 md:px-8">
+			<div class="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+				<div class="text-center sm:text-left">
+					<p class="text-sm">
+						<span class="text-muted-foreground">© {currentYear}</span>
+						<span class="text-foreground font-medium"> Ahmad Bukhari</span>
+					</p>
 
-		<div class="text-muted-foreground flex gap-4 text-sm">
-			<a href="mailto:your@email.com" class="hover:text-foreground hover:underline">Email</a>
-			<a href="https://linkedin.com" class="hover:text-foreground hover:underline">LinkedIn</a
-			>
+					<p class="text-muted-foreground text-xs">Available for data/analytics work.</p>
+				</div>
+
+				<!-- Mobile: keep nav + toggle inline; wrap only if needed -->
+				<div
+					class="flex flex-wrap items-center justify-center gap-x-4 gap-y-2 sm:justify-end sm:gap-x-5"
+				>
+					<nav aria-label="Footer" class="text-muted-foreground text-sm">
+						<ul
+							class="flex flex-wrap items-center justify-center gap-x-4 gap-y-2 sm:justify-end sm:gap-x-5"
+						>
+							{#each NAV_LINKS as link (link.href)}
+								<li>
+									<a
+										class="hover:text-foreground transition-colors"
+										href={link.href}
+										target={link.external ? "_blank" : undefined}
+										rel={link.external ? "noopener noreferrer" : undefined}
+									>
+										{link.label}
+									</a>
+								</li>
+							{/each}
+						</ul>
+					</nav>
+
+					<div class="bg-border hidden h-6 w-px sm:block" aria-hidden="true"></div>
+					<ModeToggle />
+				</div>
+			</div>
 		</div>
 	</div>
 </footer>

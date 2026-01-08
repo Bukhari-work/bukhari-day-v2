@@ -2,114 +2,117 @@
 	import type { Project } from "$lib/types";
 	import { Badge } from "$lib/components/ui/badge";
 	import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "$lib/components/ui/card";
-	import { Button } from "$lib/components/ui/button";
 	import { cn } from "$lib/utils";
 	import type { HTMLAttributes } from "svelte/elements";
+	import { Image, FolderOpen } from "@lucide/svelte";
 
 	type Props = HTMLAttributes<HTMLDivElement> & {
 		project: Project;
 		maxTech?: number;
-		ctaLabel?: string;
 		hrefBase?: string;
 	};
 
 	let {
 		project,
 		maxTech = 3,
-		ctaLabel = "View case study",
 		hrefBase = "/projects",
 		class: className,
 		...rest
 	}: Props = $props();
 
+	// Logic
 	const href = $derived(`${hrefBase}/${project.slug}`);
 
 	const tech = $derived(project.tech ?? []);
 	const visibleTech = $derived(tech.slice(0, maxTech));
-	const hiddenTech = $derived(tech.slice(maxTech));
+	const hiddenCount = $derived(Math.max(0, tech.length - maxTech));
 
-	const year = $derived(project.year ? String(project.year) : "");
-	const role = $derived((project.role ?? "").trim());
-	const summary = $derived((project.summary ?? "").trim());
-
-	const hiddenTitle = $derived(hiddenTech.join(", "));
-	const ariaLabel = $derived(`Open case study: ${project.title}`);
+	// Formatted strings
+	const year = $derived(project.year ? String(project.year) : null);
+	const role = $derived(project.role?.trim() ?? null);
+	const summary = $derived(project.summary?.trim() ?? null);
+	const hiddenTitle = $derived(tech.slice(maxTech).join(", "));
 </script>
 
 <Card
 	class={cn(
-		"group relative flex h-full flex-col overflow-hidden border transition-all",
-		"hover:border-foreground/40 hover:shadow-md",
-		"focus-within:ring-ring focus-within:ring-2 focus-within:ring-offset-2",
+		"group relative flex h-full flex-col overflow-hidden pt-0 transition-all",
+		"hover:border-primary hover:shadow-md",
+		"has-[a:focus-visible]:ring-ring has-[a:focus-visible]:ring-2 has-[a:focus-visible]:ring-offset-2",
 		className
 	)}
 	{...rest}
 >
-	{#if project.thumbnail}
-		<a {href} class="bg-muted aspect-video w-full overflow-hidden border-b">
+	<div class="bg-muted flex aspect-video w-full items-center overflow-hidden border-b">
+		{#if project.thumbnail}
 			<img
 				src={project.thumbnail}
 				alt={`${project.title} thumbnail`}
-				class="h-full w-full object-cover transition-transform duration-500 ease-in-out hover:scale-105"
+				aria-hidden="true"
+				class="mx-auto my-auto aspect-video h-7/9 w-14/16 rounded-lg object-cover transition-transform duration-400 ease-in-out group-hover:scale-105"
 				loading="lazy"
 			/>
-		</a>
-	{/if}
+		{:else}
+			<div class="text-muted-foreground/20 flex h-full w-full items-center justify-center">
+				<FolderOpen size={48} strokeWidth={1} />
+			</div>
+		{/if}
+	</div>
 
-	<CardHeader class="">
-		<div class="flex items-center justify-between gap-4">
-			<CardTitle class="hover:text-muted-foreground text-lg">
+	<CardHeader>
+		<div class="flex items-start justify-between gap-4">
+			<CardTitle class="group-hover:text-primary text-lg leading-tight transition-colors">
 				<a
 					{href}
 					data-sveltekit-preload-data="hover"
-					class="focus:outline-none"
-					aria-label={ariaLabel}
+					class="after:absolute after:inset-0 after:z-10 focus:outline-none"
+					aria-label={`View case study: ${project.title}`}
 				>
-					<span class="line-clamp-1" title={project.title}>{project.title}</span>
+					{project.title}
 				</a>
 			</CardTitle>
 
 			{#if year}
-				<span
-					class="text-muted-foreground shrink-0 font-mono text-xs"
-					aria-label={`Year: ${year}`}
-				>
+				<Badge variant="secondary" class="shrink-0 font-mono text-xs font-normal">
 					{year}
-				</span>
+				</Badge>
 			{/if}
 		</div>
 
 		{#if role}
-			<div class="text-muted-foreground line-clamp-1 text-xs">{role}</div>
+			<div class="text-muted-foreground line-clamp-1 text-xs font-medium">
+				{role}
+			</div>
 		{/if}
 	</CardHeader>
 
-	<CardContent class="flex-1 space-y-4">
+	<CardContent class="flex-1">
 		{#if summary}
-			<p class="text-muted-foreground line-clamp-2 text-sm leading-relaxed">{summary}</p>
+			<p class="text-muted-foreground line-clamp-3 text-sm leading-relaxed">
+				{summary}
+			</p>
 		{/if}
 	</CardContent>
 
-	<CardFooter class="pt-2">
-		{#if visibleTech.length}
-			<div class="flex flex-wrap gap-2" aria-label="Technologies used">
-				{#each visibleTech as t (t)}
-					<Badge variant="secondary" class="pointer-events-none text-xs font-normal"
-						>{t}</Badge
-					>
+	{#if visibleTech.length}
+		<CardFooter class="pt-0">
+			<div class="flex flex-wrap gap-2">
+				{#each visibleTech as t}
+					<Badge variant="secondary" class="shrink-0 font-mono text-xs font-normal">
+						{t}
+					</Badge>
 				{/each}
 
-				{#if hiddenTech.length}
+				{#if hiddenCount > 0}
 					<Badge
 						variant="outline"
-						class="text-muted-foreground text-xs font-normal"
+						class="shrink-0 font-mono text-xs font-normal"
 						title={hiddenTitle}
-						aria-label={`More technologies: ${hiddenTitle}`}
 					>
-						+{hiddenTech.length}
+						+{hiddenCount}
 					</Badge>
 				{/if}
 			</div>
-		{/if}
-	</CardFooter>
+		</CardFooter>
+	{/if}
 </Card>
