@@ -19,7 +19,7 @@
 
 <footer class="z-50 w-full">
 	<div class="bg-background container border-t py-6 sm:border-t-0 sm:bg-transparent sm:py-8">
-		<div class="sm:bg-card rounded-2xl px-4 py-4 shadow-sm sm:border sm:px-6 md:px-8">
+		<div class="sm:bg-card rounded-2xl px-4 py-4 sm:border sm:shadow-sm md:px-8">
 			<div class="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
 				<div class="text-center sm:text-left">
 					<p class="text-sm">
@@ -27,16 +27,15 @@
 						<span class="text-foreground font-medium"> Ahmad Bukhari</span>
 					</p>
 
-					<p class="text-muted-foreground text-xs">Available for data/analytics work.</p>
+					<p class="text-muted-foreground text-xs">Available for data analytics work.</p>
 				</div>
 
-				<!-- Mobile: keep nav + toggle inline; wrap only if needed -->
 				<div
 					class="flex flex-wrap items-center justify-center gap-x-4 gap-y-2 sm:justify-end sm:gap-x-5"
 				>
 					<nav aria-label="Footer" class="text-muted-foreground text-sm">
 						<ul
-							class="flex flex-wrap items-center justify-center gap-x-4 gap-y-2 sm:justify-end sm:gap-x-5"
+							class="flex flex-wrap items-center justify-center gap-x-4 gap-y-2 sm:justify-end"
 						>
 							{#each NAV_LINKS as link (link.href)}
 								<li>
