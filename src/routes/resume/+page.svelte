@@ -322,7 +322,7 @@
 									<ul
 										class="text-muted-foreground ml-5 list-outside list-disc space-y-1 text-sm"
 									>
-										{#each e.bullets as b}
+										{#each e.bullets as b (b)}
 											<li>{b}</li>
 										{/each}
 									</ul>
@@ -330,7 +330,7 @@
 
 								{#if e.tags?.length}
 									<div class="flex flex-wrap gap-2 pt-1">
-										{#each e.tags as t}
+										{#each e.tags as t (t)}
 											<Badge variant="secondary">{t}</Badge>
 										{/each}
 									</div>

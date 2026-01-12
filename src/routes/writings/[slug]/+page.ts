@@ -10,8 +10,7 @@ export const load: PageLoad = async ({ params }) => {
 			content: writing.default, // The actual markdown content (converted to a Svelte component)
 			meta: writing.metadata, // The frontmatter (title, date, etc.)
 		};
-	} catch (e) {
-		// If the file doesn't exist, show a 404
+	} catch {
 		error(404, `Could not find writing ${params.slug}`);
 	}
 };

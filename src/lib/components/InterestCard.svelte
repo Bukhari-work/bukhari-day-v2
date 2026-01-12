@@ -1,10 +1,8 @@
-<script lang="ts">
-	import { Badge } from "$lib/components/ui/badge";
-	import { cn } from "$lib/utils";
+<script module lang="ts">
 	import type { Component } from "svelte";
 
-	// 1. Strict Typing with Interface
-	interface Props {
+	// Define and export the type here
+	export interface Interest {
 		category: string;
 		title: string;
 		icon: Component;
@@ -14,6 +12,11 @@
 		imageUrl?: string;
 		class?: string;
 	}
+</script>
+
+<script lang="ts">
+	import { Badge } from "$lib/components/ui/badge";
+	import { cn } from "$lib/utils";
 
 	let {
 		category,
@@ -24,16 +27,12 @@
 		variant = "default",
 		imageUrl,
 		class: className,
-	}: Props = $props();
+	}: Interest = $props();
 
 	let isFlipped = $state(false);
 
 	function toggleFlip() {
 		isFlipped = !isFlipped;
-	}
-
-	function handleInnerClick(e: MouseEvent) {
-		e.stopPropagation();
 	}
 </script>
 
@@ -67,7 +66,7 @@
 			<div>
 				<h3 class="text-foreground text-lg font-semibold tracking-tight">{title}</h3>
 				<div class="text-muted-foreground mt-2 line-clamp-3 text-sm leading-relaxed">
-					{@html description}
+					{description}
 				</div>
 			</div>
 

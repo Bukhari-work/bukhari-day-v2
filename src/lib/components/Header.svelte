@@ -29,7 +29,7 @@
 		</a>
 
 		<nav class="hidden items-center gap-8 text-sm md:flex">
-			{#each navItems as item}
+			{#each navItems as item (item.href)}
 				<a
 					href={item.href}
 					class="transition-all duration-300 hover:font-bold
@@ -54,7 +54,7 @@
 	{#if isMenuOpen}
 		<div class="bg-background border-b md:hidden">
 			<div class="container space-y-4 py-4">
-				{#each navItems as item}
+				{#each navItems as item (item.href)}
 					<a
 						href={item.href}
 						class="hover:text-primary block text-sm font-medium transition-colors"

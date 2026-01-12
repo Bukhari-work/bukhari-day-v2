@@ -96,7 +96,7 @@
 						Technologies
 					</h3>
 					<div class="flex flex-wrap gap-2">
-						{#each tech as t}
+						{#each tech as t (t)}
 							<Badge
 								variant="secondary"
 								class="shrink-0 font-mono text-xs font-normal"
@@ -117,7 +117,7 @@
 			<section>
 				<h2 class="mb-6 text-2xl font-bold tracking-tight">Key Highlights</h2>
 				<ul class="grid gap-x-8 gap-y-4 sm:grid-cols-2">
-					{#each highlights as highlight}
+					{#each highlights as highlight (highlight)}
 						<li class="text-muted-foreground flex items-start gap-3 text-base">
 							<span
 								class="bg-primary/10 text-primary mt-1 flex h-5 w-5 shrink-0 items-center justify-center rounded-full"

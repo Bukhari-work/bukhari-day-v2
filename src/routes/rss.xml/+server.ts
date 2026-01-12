@@ -1,11 +1,12 @@
 import { getWritings } from "$lib/utils/writings";
+import type { Writing } from "$lib/types";
 
 export const GET = async () => {
 	const writings = await getWritings();
 	const siteUrl = "https://www.bukhari.day";
 	const feedUrl = `${siteUrl}/rss.xml`;
 
-	const render = (writings: any[]) => `<?xml version="1.0" encoding="UTF-8" ?>
+	const render = (writings: Writing[]) => `<?xml version="1.0" encoding="UTF-8" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
 <channel>
 	<title>Ahmad Bukhari</title>

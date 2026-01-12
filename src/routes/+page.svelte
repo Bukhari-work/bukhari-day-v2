@@ -1,7 +1,7 @@
 <script lang="ts">
 	import type { PageData } from "./$types";
 	import SEO from "$lib/components/SEO.svelte";
-	import ProjectCard from "$lib/components/ProjectCard.svelte"; // UI Components
+	import ProjectCard from "$lib/components/ProjectCard.svelte";
 
 	import { Button } from "$lib/components/ui/button";
 	import { Badge } from "$lib/components/ui/badge"; // Icons
@@ -12,24 +12,24 @@
 
 	type StackGroup = {
 		category: string;
-		items: string[];
+		skills: string[];
 		variant: "default" | "secondary" | "outline";
-	}; // Single source of truth. Easy to reorder or add new groups.
+	};
 
 	const techStack: StackGroup[] = [
 		{
 			category: "Analytics",
-			items: ["SQL (PostgreSQL, BigQuery)", "Python (Pandas, NumPy)", "Excel", "Tableau"],
+			skills: ["SQL (PostgreSQL, BigQuery)", "Python (Pandas, NumPy)", "Excel", "Tableau"],
 			variant: "secondary",
 		},
 		{
 			category: "Frontend",
-			items: ["HTML", "CSS / SCSS", "JavaScript / TypeScript", "SvelteKit"],
+			skills: ["HTML", "CSS / SCSS", "JavaScript / TypeScript", "SvelteKit"],
 			variant: "outline",
 		},
 		{
 			category: "Scripting & Tools",
-			items: ["Bash", "Git"],
+			skills: ["Bash", "Git"],
 			variant: "outline",
 		},
 	];
@@ -99,9 +99,9 @@
 				Tech Stack
 			</h3>
 			<div class="flex flex-wrap gap-2">
-				{#each techStack as group}
-					{#each group.items as skill}
-						<Badge variant={group.variant} class="px-3 py-1 text-sm font-normal">
+				{#each techStack as stack (stack.category)}
+					{#each stack.skills as skill (skill)}
+						<Badge variant={stack.variant} class="px-3 py-1 text-sm font-normal">
 							{skill}
 						</Badge>
 					{/each}
@@ -117,7 +117,7 @@
 			<Button variant="link" href="/projects">View all &rarr;</Button>
 		</div>
 		<div class="grid gap-6 md:grid-cols-2">
-			{#each data.featuredProjects as project}
+			{#each data.featuredProjects as project (project.slug)}
 				<ProjectCard {project} />
 			{/each}
 		</div>

@@ -4,7 +4,7 @@
 	import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "$lib/components/ui/card";
 	import { cn } from "$lib/utils";
 	import type { HTMLAttributes } from "svelte/elements";
-	import { Image, FolderOpen } from "@lucide/svelte";
+	import { FolderOpen } from "@lucide/svelte";
 
 	type Props = HTMLAttributes<HTMLDivElement> & {
 		project: Project;
@@ -97,7 +97,7 @@
 	{#if visibleTech.length}
 		<CardFooter class="pt-0">
 			<div class="flex flex-wrap gap-2">
-				{#each visibleTech as t}
+				{#each visibleTech as t (t)}
 					<Badge variant="secondary" class="shrink-0 font-mono text-xs font-normal">
 						{t}
 					</Badge>

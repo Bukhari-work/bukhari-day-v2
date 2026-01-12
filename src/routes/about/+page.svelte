@@ -1,10 +1,10 @@
 <script lang="ts">
 	import SEO from "$lib/components/SEO.svelte";
-	import InterestCard from "$lib/components/InterestCard.svelte"; // Import the new component
+	import InterestCard, { type Interest } from "$lib/components/InterestCard.svelte";
 	import { MapPin, Activity, Store, BookOpen } from "@lucide/svelte";
 
 	// Data structure for "Beyond" cards
-	const interests = [
+	const interests: Interest[] = [
 		{
 			category: "Physical",
 			title: "Running",
@@ -95,7 +95,7 @@
 		</div>
 
 		<div class="grid gap-6 md:grid-cols-3">
-			{#each interests as item}
+			{#each interests as item (item.title)}
 				<InterestCard {...item} />
 			{/each}
 		</div>

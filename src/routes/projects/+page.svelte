@@ -22,7 +22,7 @@
 
 	{#if data.projects.length > 0}
 		<div class="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
-			{#each data.projects as project}
+			{#each data.projects as project (project.slug)}
 				<ProjectCard {project} />
 			{/each}
 		</div>

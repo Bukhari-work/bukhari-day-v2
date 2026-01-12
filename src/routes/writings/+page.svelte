@@ -16,7 +16,7 @@
 
 	{#if data.writings.length > 0}
 		<div class="grid gap-6">
-			{#each data.writings as writing}
+			{#each data.writings as writing (writing.slug)}
 				<WritingCard {writing} />
 			{/each}
 		</div>

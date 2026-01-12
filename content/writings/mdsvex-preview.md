@@ -76,7 +76,7 @@ This file is meant to help you preview:
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean euismod bibendum laoreet. Proin gravida dolor sit amet lacus accumsan et viverra justo commodo.
 
-**Bold text**, *italic text*, and `inline code` should all look good.
+**Bold text**, _italic text_, and `inline code` should all look good.
 
 A link example: [Svelte docs](https://svelte.dev).
 
@@ -117,7 +117,7 @@ type Mood = "calm" | "focused" | "chaotic";
 function greet(name: string, mood: Mood) {
   return `Hello ${name}, you look ${mood} today.`;
 }
-````
+```
 
 ```bash
 pnpm add -D mdsvex
@@ -128,14 +128,15 @@ pnpm sv add mdsvex
 
 ## 5) Table
 
-| Feature       | Expectation          | Status             |
-| ------------- | -------------------- | ------------------ |
+| Feature       | Expectation          | Status              |
+| ------------- | -------------------- | ------------------- |
 | Headings      | Good hierarchy       | ✅                  |
 | Links         | Clear style          | ✅                  |
 | Code blocks   | Syntax highlight     | ✅ / depends        |
 | Interactivity | Buttons update state | ✅ (if events work) |
 
 ---
+
 ## 6) Interactive Demos (Svelte 5 / runes)
 
 <div class="not-prose space-y-10">
@@ -184,6 +185,7 @@ pnpm sv add mdsvex
         </div>
       {/if}
     </div>
+
   </Card>
 
   <Card class="p-5 sm:p-6">
@@ -243,6 +245,7 @@ pnpm sv add mdsvex
         </p>
       </div>
     </div>
+
   </Card>
 
   <Card class="p-5 sm:p-6">
@@ -291,6 +294,7 @@ pnpm sv add mdsvex
         {/each}
       </ul>
     </div>
+
   </Card>
 </div>
 
@@ -304,10 +308,9 @@ This usually works if the component forwards DOM events:
 
 <Button onclick={() => alert("works in Svelte 5")}>Click</Button>
 
-If it *doesn’t* forward `onclick`, fall back to:
+If it _doesn’t_ forward `onclick`, fall back to:
 
 <Button on:click={() => alert("works")}>Click</Button>
-
 
 ---
 

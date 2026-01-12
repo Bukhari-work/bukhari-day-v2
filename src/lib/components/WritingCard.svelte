@@ -34,7 +34,7 @@
 
 			{#if (writing.tags?.length ?? 0) > 0}
 				<div class="flex flex-wrap gap-1.5">
-					{#each visibleTags as tag}
+					{#each visibleTags as tag (tag)}
 						<Badge variant="secondary" class="font-mono text-xs leading-none">
 							#{tag}
 						</Badge>

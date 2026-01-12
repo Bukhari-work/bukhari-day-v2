@@ -9,7 +9,7 @@ export const load: PageLoad = async ({ params }) => {
 			content: project.default, // The actual markdown content (converted to a Svelte component)
 			meta: project.metadata, // The frontmatter (title, date, etc.)
 		};
-	} catch (e) {
+	} catch {
 		error(404, `Could not find project ${params.slug}`);
 	}
 };

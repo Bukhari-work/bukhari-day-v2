@@ -43,7 +43,7 @@
 
 		{#if data.meta.tags}
 			<div class="flex gap-2">
-				{#each data.meta.tags as tag}
+				{#each data.meta.tags as tag (tag)}
 					<Badge variant="secondary" class="rounded-md px-2 py-0 text-xs font-normal">
 						#{tag}
 					</Badge>

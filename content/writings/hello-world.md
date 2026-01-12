@@ -10,6 +10,6 @@ published: true
 
 This is where the actual writing goes. I can use **bold**, _italics_, and even Svelte components.
 
-```js
+```javascript
 console.log("Syntax highlighting works automatically!");
 ```
