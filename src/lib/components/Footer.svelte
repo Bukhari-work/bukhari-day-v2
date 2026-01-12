@@ -6,11 +6,15 @@
 	const LINKS = {
 		source: {
 			label: "GitHub",
-			href: "https://github.com/yourusername/yourrepo",
+			href: "https://github.com/Bukhari-work",
 			external: true,
 		},
-		email: { label: "Email", href: "mailto:your@email.com", external: false },
-		linkedin: { label: "LinkedIn", href: "https://linkedin.com/in/yourhandle", external: true },
+		email: { label: "Email", href: "mailto:ahamdbukhariwork@gmail.com", external: false },
+		linkedin: {
+			label: "LinkedIn",
+			href: "https://linkedin.com/in/ahmad-bukhari-6112891b7/",
+			external: true,
+		},
 		rss: { label: "RSS", href: "/rss.xml", external: false },
 	} as const;
 

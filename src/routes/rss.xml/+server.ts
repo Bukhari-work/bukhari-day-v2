@@ -1,3 +1,5 @@
+export const prerender = true;
+
 import { getWritings } from "$lib/utils/writings";
 import type { Writing } from "$lib/types";
 

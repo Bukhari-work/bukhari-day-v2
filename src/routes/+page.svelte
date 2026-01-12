@@ -79,13 +79,18 @@
 		</div>
 		<div class="flex flex-col gap-6 sm:flex-row sm:items-start sm:gap-12">
 			<div class="flex flex-col gap-3 sm:flex-row">
-				<Button size="lg" href="https://www.linkedin.com/" target="_blank" rel="noreferrer">
+				<Button
+					size="lg"
+					href="https://www.linkedin.com/in/ahmad-bukhari-6112891b7/"
+					target="_blank"
+					rel="noreferrer"
+				>
 					<Linkedin class="mr-2 h-4 w-4" /> LinkedIn
 				</Button>
 				<Button
 					size="lg"
 					variant="outline"
-					href="https://github.com/"
+					href="https://github.com/Bukhari-work"
 					target="_blank"
 					rel="noreferrer"
 				>

@@ -10,7 +10,7 @@ tech:
   - MDsveX
 link:
   label: GitHub Repo
-  url: https://github.com/yourusername/portfolio
+  url: https://github.com/Bukhari-work/bukhari-day
 featured: true
 ---
 
