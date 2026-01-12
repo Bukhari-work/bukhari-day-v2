@@ -30,9 +30,9 @@
 		phone: "+62 818-0939-5517",
 		email: "ahmadbukhariwork@gmail.com",
 		linkedinLabel: "LinkedIn",
-		linkedinUrl: "#",
+		linkedinUrl: "https://linkedin.com/in/ahmad-bukhari-6112891b7/",
 		githubLabel: "GitHub",
-		githubUrl: "#",
+		githubUrl: "https://github.com/Bukhari-work",
 		portfolioLabel: "bukhari.day",
 		portfolioUrl: "https://bukhari.day",
 	};
