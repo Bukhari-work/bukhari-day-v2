@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { page } from "$app/state"; // <--- 1. New import
+	import { page } from "$app/state";
 
 	let {
 		title = "Full Stack Data Analyst",
