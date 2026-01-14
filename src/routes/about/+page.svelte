@@ -20,7 +20,7 @@
 			title: "Reading",
 			icon: BookOpen,
 			description:
-				"High fantasy and and slice-of-life. <br/>Currently finishing <em class='italic'>By Blood, By Salt</em>.",
+				"High fantasy and and slice-of-life. Currently finishing By Blood, By Salt.",
 			meta: "Chapter 4",
 			variant: "outline" as const,
 			imageUrl: "/images/by-blood-by-salt-cover.jpg",
