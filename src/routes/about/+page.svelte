@@ -57,6 +57,7 @@
 					src="/images/ahmad-bukhari.webp"
 					alt="Ahmad Bukhari"
 					class="h-full w-full object-cover"
+					loading="eager"
 				/>
 			</div>
 
