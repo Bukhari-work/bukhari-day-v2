@@ -1,4 +1,3 @@
-export const prerender = true;
 import { getFeaturedProjects } from "$lib/utils/projects";
 import type { PageLoad } from "./$types";
 
