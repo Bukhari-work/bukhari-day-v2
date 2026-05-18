@@ -13,7 +13,7 @@
 	const absoluteImageUrl = $derived(image.startsWith("http") ? image : `${siteUrl}${image}`);
 
 	let currentUrl = $derived(`${siteUrl}${page.url.pathname}`);
-	let pageTitle = $derived(`${title} | Ahmad Bukhari`);
+	let pageTitle = $derived(`${title} | Bukhari.Day`);
 </script>
 
 <svelte:head>
