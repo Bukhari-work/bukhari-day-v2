@@ -1,11 +1,13 @@
 <script lang="ts">
+	import SEO from "$lib/components/SEO.svelte";
 	import { page } from "$app/stores";
 	import { Button } from "$lib/components/ui/button";
 </script>
 
-<svelte:head>
-	<title>Page Not Found | Your Name</title>
-</svelte:head>
+<SEO
+	title="Error"
+	description="I am a Data Analyst with a background in Nuclear Engineering. I specialize in turning raw data into actionable business insights."
+/>
 
 <div class="flex h-[60dvh] flex-col items-center justify-center space-y-6 text-center">
 	<div class="space-y-2">
