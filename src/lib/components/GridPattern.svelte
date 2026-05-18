@@ -1,11 +1,11 @@
 <script>
 	export let size = 20;
-	export let stroke = 1;
-	export let fadeAmount = 0.3; // How much to fade (0 to 1)
+	export let stroke = 0.4; // How much of the grid stroke to show (0 to ~)
+	export let fadeAmount = 0.6; // How much to fade (0 to 1)
 </script>
 
 <div class="fixed inset-0 -z-10 overflow-hidden bg-transparent">
-	<svg class="stroke-accent absolute h-full w-full" aria-hidden="true">
+	<svg class="stroke-border absolute h-full w-full" aria-hidden="true">
 		<defs>
 			<!-- Grid pattern -->
 			<pattern id="grid" width={size} height={size} patternUnits="userSpaceOnUse">
