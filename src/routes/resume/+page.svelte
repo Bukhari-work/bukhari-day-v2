@@ -288,7 +288,7 @@
 
 <SEO title="Resume" description="{currentProfile.targetTitle} resume of {header.name}." />
 
-<div class="container space-y-8 py-12 lg:max-w-3xl">
+<div class="container space-y-8 py-6 md:py-12 lg:max-w-3xl">
 	<!-- Tab Controls (Hidden when printing) -->
 	<div class="bg-muted/50 mb-8 flex w-fit flex-wrap gap-2 rounded-lg p-1.5 print:hidden">
 		<Button
