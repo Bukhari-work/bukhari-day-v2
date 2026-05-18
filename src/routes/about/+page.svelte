@@ -39,7 +39,7 @@
 </script>
 
 <SEO
-	title="About Me | Data Analyst"
+	title="About Me"
 	description="I am a Data Analyst with a background in Nuclear Engineering. I specialize in turning raw data into actionable business insights."
 />
 
