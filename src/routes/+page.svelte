@@ -74,7 +74,7 @@
 				to product analytics. I build <strong>reliable</strong> data pipelines and
 				<strong>dashboards</strong>
 				that turn chaotic user behavior into <strong>clear</strong>
-				<span class="line-through">at least for me</span> <strong>strategy</strong>.
+				<span class="line-through">(at least for me)</span> <strong>strategy</strong>.
 			</p>
 		</div>
 		<div class="flex flex-col gap-6 sm:flex-row sm:items-start sm:gap-12">
@@ -89,14 +89,14 @@
 				</Button>
 				<Button
 					size="lg"
-					variant="outline"
+					variant="secondary"
 					href="https://github.com/Bukhari-work"
 					target="_blank"
 					rel="noreferrer"
 				>
 					<Github class="mr-2 h-4 w-4" /> GitHub
 				</Button>
-				<Button size="lg" variant="outline" href="/resume">Resume</Button>
+				<Button size="lg" variant="secondary" href="/resume">Resume</Button>
 			</div>
 		</div>
 		<div class="space-y-3 pt-2">
