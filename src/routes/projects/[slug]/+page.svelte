@@ -10,7 +10,7 @@
 
 	const highlights = $derived(meta?.highlights ?? []);
 	const tech = $derived(meta?.tech ?? []);
-	const link = $derived(meta?.link);
+	const links = $derived(meta?.links ?? []);
 
 	const thumbnail = $derived.by(() => {
 		const t = meta?.thumbnail?.trim();
@@ -38,7 +38,7 @@
 			<img
 				src={thumbnail}
 				alt={meta.title}
-				class="aspect-video w-full object-cover"
+				class="aspect-video w-full object-contain"
 				loading="eager"
 			/>
 		</div>
@@ -75,17 +75,21 @@
 		</div>
 
 		<div class="flex flex-col gap-6 lg:border-l lg:pt-2 lg:pl-10">
-			{#if link?.url}
-				<Button
-					href={link.url}
-					target="_blank"
-					rel="noopener noreferrer"
-					size="lg"
-					class="w-full gap-2 lg:w-auto"
-				>
-					{link.label ?? "Visit Live Site"}
-					<ExternalLink class="h-4 w-4" />
-				</Button>
+			{#if links.length > 0}
+				<div class="flex flex-col gap-3">
+					{#each links as link (link.url)}
+						<Button
+							href={link.url}
+							target="_blank"
+							rel="noopener noreferrer"
+							size="lg"
+							class="w-full gap-2 lg:w-auto"
+						>
+							{link.label ?? "Visit Link"}
+							<ExternalLink class="h-4 w-4" />
+						</Button>
+					{/each}
+				</div>
 			{/if}
 
 			{#if tech.length > 0}
@@ -93,7 +97,7 @@
 					<h3
 						class="text-muted-foreground text-xs font-semibold tracking-wider uppercase"
 					>
-						Technologies
+						Tech Stack
 					</h3>
 					<div class="flex flex-wrap gap-2">
 						{#each tech as t (t)}
@@ -133,7 +137,7 @@
 		{/if}
 
 		<section
-			class="prose prose-sm md:prose-base dark:prose-invert prose-headings:leading-none prose-li:leading-normal mx-auto max-w-3xl min-w-0"
+			class="prose prose-sm md:prose-base dark:prose-invert prose-headings:leading-none prose-li:leading-normal prose-h2:text-primary mx-auto max-w-3xl min-w-0"
 		>
 			<data.content />
 		</section>

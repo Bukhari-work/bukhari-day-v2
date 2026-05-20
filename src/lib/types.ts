@@ -5,10 +5,10 @@ export type Project = {
 	role: string; // e.g., "Frontend Developer", "Solo Creator"
 	year: string;
 	tech: string[]; // e.g., ["SvelteKit", "Tailwind", "Supabase"]
-	link: {
+	links?: {
 		label: string; // e.g., "Live Demo", "GitHub"
 		url: string;
-	};
+	}[];
 	thumbnail?: string;
 	highlights?: string[];
 	featured: boolean;

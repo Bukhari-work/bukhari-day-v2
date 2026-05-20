@@ -8,9 +8,10 @@ tech:
   - Astro
   - Tailwind
   - i18n
-link:
-  label: Live Site
-  url: #
+links:
+  - label: Live Site
+    url: https://www.champs-ui.org
+thumbnail: "/projects/champs-ui_thumbnail.webp"
 featured: true
 ---
 

@@ -49,7 +49,7 @@
 				src={project.thumbnail}
 				alt={`${project.title} thumbnail`}
 				aria-hidden="true"
-				class="mx-auto my-auto aspect-video h-7/9 w-14/16 rounded-lg object-cover transition-transform duration-400 ease-in-out group-hover:scale-105"
+				class="mx-auto my-auto aspect-video h-9/10 rounded-lg object-contain transition-transform duration-400 ease-in-out group-hover:scale-105"
 				loading="lazy"
 			/>
 		{:else}

@@ -72,9 +72,9 @@ The site uses a file-based content system located in the content/ directory. No 
     role: "Frontend Developer"
     year: 2025
     tech: ["SvelteKit", "TypeScript"]
-    link: 
-      label: "Live Demo"
-      url: "https://..."
+    links:
+      - label: "Live Demo"
+        url: "https://..."
     featured: true
     ---
 

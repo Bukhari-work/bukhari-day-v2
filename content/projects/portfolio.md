@@ -8,9 +8,9 @@ tech:
   - SvelteKit
   - Tailwind v4
   - MDsveX
-link:
-  label: GitHub Repo
-  url: https://github.com/Bukhari-work/bukhari-day
+links:
+  - label: GitHub Repo
+    url: https://github.com/Bukhari-work/bukhari-day
 featured: true
 ---
 
