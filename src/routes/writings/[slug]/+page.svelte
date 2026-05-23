@@ -1,4 +1,5 @@
 <script lang="ts">
+	import type { PageData } from "./$types";
 	import SEO from "$lib/components/SEO.svelte";
 	import { Badge } from "$lib/components/ui/badge";
 	import { Button } from "$lib/components/ui/button";
@@ -6,16 +7,19 @@
 
 	import { ArrowLeft } from "@lucide/svelte";
 
-	let { data } = $props();
+	let { data }: { data: PageData } = $props();
 
-	// Format date nicely
+	// Force Time Zone parsing to prevent SSR hydration mismatches
 	let formattedDate = $derived(
-		new Date(data.meta.date).toLocaleDateString("en-US", {
+		new Intl.DateTimeFormat("en-US", {
+			timeZone: "Asia/Makassar",
 			year: "numeric",
 			month: "long",
 			day: "numeric",
-		})
+		}).format(new Date(data.meta.date))
 	);
+
+	let isoDate = $derived(new Date(data.meta.date).toISOString());
 </script>
 
 <SEO title={data.meta.title} description={data.meta.description} type="article" />
@@ -33,18 +37,18 @@
 	</nav>
 
 	<header class="mb-10 flex flex-col items-center gap-4 text-center">
-		<h1 class="text-4xl font-extrabold tracking-tight lg:text-5xl">
+		<h1 class="text-4xl font-extrabold tracking-tight text-balance lg:text-5xl">
 			{data.meta.title}
 		</h1>
 
 		<div class="text-muted-foreground flex items-center gap-2 font-mono text-sm">
-			<time datetime={data.meta.date}>{formattedDate}</time>
+			<time datetime={isoDate}>{formattedDate}</time>
 		</div>
 
-		{#if data.meta.tags}
-			<div class="flex gap-2">
+		{#if data.meta.tags && data.meta.tags.length > 0}
+			<div class="flex flex-wrap justify-center gap-2">
 				{#each data.meta.tags as tag (tag)}
-					<Badge variant="secondary" class="rounded-md px-2 py-0 text-xs font-normal">
+					<Badge variant="secondary" class="text-xs font-normal">
 						#{tag}
 					</Badge>
 				{/each}
@@ -55,7 +59,7 @@
 	<Separator class="my-8" />
 
 	<section
-		class="prose prose-sm md:prose-base dark:prose-invert prose-headings:leading-none prose-li:leading-normal mx-auto max-w-3xl min-w-0"
+		class="prose prose-sm md:prose-base dark:prose-invert prose-headings:leading-none prose-li:leading-normal prose-h2:text-primary prose-headings:text-balance mx-auto max-w-3xl min-w-0 text-pretty"
 	>
 		<data.content />
 	</section>
