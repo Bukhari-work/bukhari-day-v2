@@ -5,7 +5,7 @@
       "A long .svx page to preview typography, components, code blocks, tables, and interactive demos.",
     date: "2025-12-30",
     tags: ["mdsvex", "sveltekit", "svelte5", "preview"],
-    published: true
+    published: false
   };
 </script>
 
@@ -111,7 +111,7 @@ A link example: [Svelte docs](https://svelte.dev).
 
 ### TypeScript
 
-```typescript
+```javascript
 type Mood = "calm" | "focused" | "chaotic";
 
 function greet(name: string, mood: Mood) {
