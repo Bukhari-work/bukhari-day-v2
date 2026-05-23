@@ -137,7 +137,7 @@
 		{/if}
 
 		<section
-			class="prose prose-sm md:prose-base dark:prose-invert prose-headings:leading-none prose-li:leading-normal prose-h2:text-primary mx-auto max-w-3xl min-w-0"
+			class="prose prose-sm md:prose-base dark:prose-invert prose-headings:leading-none prose-li:leading-normal prose-h2:text-primary prose-headings:text-balance mx-auto max-w-3xl min-w-0 text-pretty"
 		>
 			<data.content />
 		</section>
